@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h1>STARTPAGE</h1>
+    <b>HELLO WORLD</b>
+{% block content %}
+    <h1>For creation new unit</h1>
+    <form action="" method="post" >
+        {{ form.csrf_token }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=64) }}
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.health.label }}<br>
+            {{ form.health(size=64) }}
+            {% for error in form.health.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
+
+</head>
+<body>
+
+</body>
+</html>
